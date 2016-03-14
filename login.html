@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1">
+<title>登录</title>
+<!--[if lte IE 8]>
+        <script>
+          // 需要确认ng-include被正常解析
+          document.createElement('ng-include');
+
+          // 需求启用CSS引用
+          document.createElement('ng:view');
+        </script>
+      <![endif]-->
+<link rel="stylesheet" href="css/bootstrap/fonts.googleapi.css" />
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap/bootstrap.min.css" media="screen">
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap/font-awesome.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/bootstrap/ace.min.css"
+	media="screen">
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap/ace-rtl.min.css" media="screen">
+<link rel="stylesheet" type="text/css"
+	href="css/bootstrap/ace-skins.min.css" media="screen">
+<link rel="stylesheet" type="text/css" href="css/common.css"
+	media="screen">
+
+<style type="text/css">
+[ng-cloak] {
+	display: none !important;
+}
+</style>
+</head>
+<body class="login-layout" ng-controller="userCtrl" ng-cloak>
+	<div class="main-container">
+		<div class="main-content">
+			<div class="row">
+				<div class="col-sm-10 col-sm-offset-1">
+					<div class="login-container">
+						<div class="center">
+							<h1>
+								<i class="icon-leaf green"></i> <span class="red">监控</span> <span
+									class="white">系统</span>
+							</h1>
+							<h4 class="blue">&copy;asiainfo</h4>
+						</div>
+
+						<div class="space-6"></div>
+
+						<div class="position-relative">
+							<div id="login-box"
+								class="login-box visible widget-box no-border">
+								<div class="widget-body">
+									<div class="widget-main">
+										<h4 class="header blue lighter bigger">
+											<i class="icon-coffee green"></i> 请输入信息
+										</h4>
+
+										<div class="space-6"></div>
+
+										<form name="userForm">
+											<fieldset>
+												<label class="block clearfix"> <span
+													class="block input-icon input-icon-right"> <input
+														type="text" class="form-control" ng-model="username"
+														placeholder="用户名" required="required" ng-trim /> <i
+														class="icon-user"></i>
+												</span>
+												</label> <label class="block clearfix"> <span
+													class="block input-icon input-icon-right"> <input
+														type="password" class="form-control" ng-model="password"
+														placeholder="密码" required="required" ng-trim /> <i
+														class="icon-lock"></i>
+												</span>
+												</label>
+
+												<div class="clearfix red" ng-init="loginTip='success'">
+													<span ng-show="loginTip=='error'">用户名或密码错误</span> <span
+														ng-show="loginTip=='success'">&nbsp;</span>
+												</div>
+
+												<div class="space"></div>
+
+												<div class="clearfix">
+													<label class="inline"> <input type="checkbox"
+														class="ace remember-check" ng-model="rememberStatus" /> <span
+														class="lbl"> 记住我</span>
+													</label>
+
+													<button type="button"
+														class="width-35 pull-right btn btn-sm btn-primary"
+														ng-click="login()" ng-disabled="userForm.$invalid">
+														<i class="icon-key"></i> 登录
+													</button>
+												</div>
+
+												<div class="space-4"></div>
+											</fieldset>
+										</form>
+
+									</div>
+									<!-- /widget-main -->
+
+									<div class="toolbar clearfix">
+										<div class="browser-support">
+											<label>
+												浏览器支持：chrome（建议）、firefox、ie10及以上
+											</label>
+										</div>
+									</div>
+								</div>
+								<!-- /widget-body -->
+							</div>
+							<!-- /login-box -->
+
+						</div>
+						<!-- /position-relative -->
+					</div>
+				</div>
+				<!-- /.col -->
+			</div>
+			<!-- /.row -->
+		</div>
+	</div>
+	<!-- /.main-container -->
+</body>
+<script src="js/core/monitor-path.js"></script>
+<script src="js/core/require-conf.js"></script>
+<script type='text/javascript' controller="userCtrl"
+	src='js/lib/requirejs/require.min.js' data-main='js/core/main.js'></script>
+</html>
